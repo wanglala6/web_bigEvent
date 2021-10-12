@@ -1,0 +1,16 @@
+<script>
+    title.addEventListener('mousedown', function(e) {
+        var x = e.pageX - login.offsetLeft; //鼠标在盒子内的坐标 
+        var y = e.pageY - login.offsetTop;
+
+        function move(e) { //移动事件只有按下了 才能动
+            login.style.left = e.pageX - x + 'px';
+            login.style.top = e.pageY - y + 'px';
+        }
+        document.addEventListener('mousemove', move)
+            //弹起 鼠标移动事件移除
+        document.addEventListener('mouseup', function() {
+            document.removeEventListener('mousemove', move)
+        })
+    })
+</script>
